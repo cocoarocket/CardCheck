@@ -1,18 +1,18 @@
 #!/usr/bin/env ruby
 
-format_string = ARGV.first.delete(" ").split("").reverse
-#format_string = "4408 0412 3456 7893".delete(" ").split("").reverse
+#format_string = ARGV.first.delete(" ").split("").reverse
+format_string = "4408 0412 3456 7893"
 
 class CardValidator
 	attr_accessor :result_string, :format_string
 
 	def initialize(args)
 		@result_string = []
-		@format_string = args
+		@format_string = args.delete(" ").split("").reverse
 	end
 
 	def valid?
-		to_translate % 10 == 0
+		to_translate % 10 == 0 ? true : false
 	end
 
 	private
@@ -24,10 +24,12 @@ class CardValidator
 	end
 end
 
-@CardTest = CardValidator.new(format_string)
+if not format_string.empty?
+	@CardTest = CardValidator.new(format_string)
 
-if @CardTest.valid?
-	puts "Thus that card is valid"
-else
-	puts "That card is not valid"
+	if @CardTest.valid?
+		puts "Thus that card is valid"
+	else
+		puts "That card is not valid"
+	end
 end
