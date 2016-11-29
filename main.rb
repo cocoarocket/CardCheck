@@ -18,7 +18,8 @@ class CardValidator
 	private
 	def to_translate
 		@format_string.each_with_index do |element, index|
-			index.even? ? @result_string << (element.to_i * 2) : @result_string << element.to_i
+			#index.even? ? @result_string << (element.to_i * 2) : @result_string << element.to_i
+			@result_string << index.even? ? (element.to_i * 2) : @result_string << element.to_i
 		end
 		@result_string = @result_string.reverse!.join.split("").map{|x| x.to_i }.inject(0, :+)
 	end
