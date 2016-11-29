@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-#format_string = ARGV.first.delete(" ").split("").reverse
-format_string = "4408 0412 3456 7893".delete(" ").split("").reverse
+format_string = ARGV.first.delete(" ").split("").reverse
+#format_string = "4408 0412 3456 7893".delete(" ").split("").reverse
 
 class CardValidator
 	attr_accessor :result_string, :format_string
