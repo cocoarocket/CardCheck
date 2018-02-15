@@ -12,7 +12,7 @@ class CardValidator
 	end
 
 	def valid?
-		to_translate % 10 == 0 ? true : false
+		(to_translate % 10).even?
 	end
 
 	private
